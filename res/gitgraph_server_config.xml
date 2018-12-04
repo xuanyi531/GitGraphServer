@@ -1,0 +1,26 @@
+<gitgraph_server>
+
+<!-- support multiple apis -->
+<!-- RESTful api example: use http get to access http://ip:port/GitGraphServer/topChangedFiles?number=3 -->
+
+<api>
+	<!-- API name -->
+	<name>
+		topChangedFiles
+	</name>
+	<!-- parameters, could be multiple params -->
+	<inputs>
+		<!-- default value of params -->
+		<input key="number">3</input>
+	</inputs>
+	<!-- returns -->
+	<output>
+	</output>
+	<!-- Cypher Script -->
+	<script>
+		MATCH (c:class) - [:ClasstoMethod] -> (:Method)
+		RETURN c
+	</script>
+</api>
+
+</gitgraph_server>
